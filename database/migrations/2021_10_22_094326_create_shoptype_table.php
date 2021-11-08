@@ -16,6 +16,8 @@ class CreateShoptypeTable extends Migration
         Schema::create('shoptype', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('name_ru');
+            $table->string('image');
         });
     }
 

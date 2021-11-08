@@ -23,10 +23,26 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('shoptype')->insert([
-            ['name' => 'Fast food'],
-            ['name' => 'Milliy taomlar'],
-            ['name' => 'Shirinliklar'],
-            ['name' => 'Barbeque'],
+            [
+                'name' => 'Fast food',
+                'name_ru' => 'Фастфуд',
+                'image' => '/cafetypes/fastfood.png',
+            ],
+            [
+                'name' => 'Desert',
+                'name_ru' => 'Десерт',
+                'image' => '/cafetypes/desert.png',
+            ],
+            [
+                'name' => 'Barbecue',
+                'name_ru' => 'Барбекю',
+                'image' => '/cafetypes/barbeque.png',
+            ],
+            [
+                'name' => 'Milliy',
+                'name_ru' => 'Национальная',
+                'image' => '/cafetypes/national.png',
+            ],
         ]);
     }
 }
