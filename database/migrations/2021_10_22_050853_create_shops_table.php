@@ -18,7 +18,7 @@ class CreateShopsTable extends Migration
             $table->string('name')->unique();
             $table->string('image');
             $table->text('description')->nullable();
-            $table->integer('type')->nullable();
+            $table->integer('shoptype_id')->nullable();
             $table->integer('city');
             $table->timestamps();
         });

@@ -14,7 +14,7 @@ class Shop extends Model
         'name',
         'image',
         'description',
-        'type',
+        'shoptype_id',
         'city',
     ];
 }

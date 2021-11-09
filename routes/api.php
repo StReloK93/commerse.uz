@@ -17,8 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/shop/type', [ShopController::class, 'cafeTypes']);
+Route::get('/shoptype', [ShopController::class, 'cafeTypes']);
 Route::get('/shop/all', [ShopController::class, 'all']);
+Route::get('/shops/{type_id}', [ShopController::class, 'shopInType']);
 Route::get('/getshop/{id}', [ShopController::class, 'shop']);
 
 

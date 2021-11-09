@@ -107,7 +107,6 @@ class AuthController extends Controller
             'image' => ":attribute tanlansin.",
             'min' => ":attribute :min simboldan kam bo'lmasligi kerak.",
             'mimes' => ":attribute faqat jpeg, png, jpg formatlarida bo'lsin."
- 
         ],[
             'name' => "Do'kon nomi",
             'fileimg' => "Rasm",
@@ -116,10 +115,10 @@ class AuthController extends Controller
         if($validator->fails()) return response()->json($validator->errors(),299);
         return Shop::create([
             'name' => $res['shopdata']['name'],
+            'shoptype_id' => (int)$res['shopdata']['type'],
             'image' => '/image',
             'city' => $res['city'],
             'description' =>$res['shopdata']['description'],
-            'type' => $res['shopdata']['type'],
         ]);
     }
 
