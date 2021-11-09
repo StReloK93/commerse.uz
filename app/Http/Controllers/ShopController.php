@@ -12,16 +12,21 @@ class ShopController extends Controller
         return response()->json($req->user(), 200);
     }
 
+    public function all(){
+        return Shop::all();
+    }
 
+    public function shop($id){
+        return Shop::find($id);
+    }
+
+    
     public function cafeTypes(){
-
         $types = DB::table('shoptype')->get();
         $url = URL::to('/');
         foreach ($types as $key => $item) {
             $types[$key]->image =$url.$item->image;
         }
         return $types;
-
-
     }
 }

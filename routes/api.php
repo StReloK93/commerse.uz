@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/shop/type', [ShopController::class, 'cafeTypes']);
+Route::get('/shop/all', [ShopController::class, 'all']);
+Route::get('/getshop/{id}', [ShopController::class, 'shop']);
+
 
 Route::middleware('guest')->group(function () {
     Route::post('/login', [AuthController::class, 'login']);

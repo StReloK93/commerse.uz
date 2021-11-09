@@ -24,7 +24,9 @@ class AuthController extends Controller
             if(!isset($shop->id)) return $shop;
             $userOrVal = $this->CreateUser($req,$shop);
             if(!isset($userOrVal->id)) return $userOrVal;
-            $this->uploadImage($file, $userOrVal);
+            $shopImagePath = $this->uploadImage($file, $userOrVal);
+            $shop->image = $shopImagePath;
+            $shop->save();
         }
         else{
             $userOrVal = $this->CreateUser($req);
@@ -78,13 +80,20 @@ class AuthController extends Controller
         $date = Carbon::now()->format('Ymdhis');
 
         $nameImg = $user->id.$date;
+
         $path = public_path('/images/shops');
+
         $img = Image::make($image->path());
         $img->resize(600, 600, function ($constraint) {
             $constraint->aspectRatio();
         })->save($path.'/'.$nameImg.'.jpg');
 
+
+        
         $image->move($path, $nameImg.'main.jpg');
+
+        $fullpath = '/images/shops/'.$nameImg.'.jpg';
+        return $fullpath;
     }
 
 
